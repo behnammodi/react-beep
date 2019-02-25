@@ -1,6 +1,6 @@
 # react-beep
 
-New way for state management without wrapper component
+New way for state management without connect component
 
 [![NPM](https://nodei.co/npm/react-beep.png)](https://nodei.co/npm/react-beep/)
 
@@ -43,9 +43,9 @@ initial([
 
 ```javascript
 import React from "react";
-import { state, StateComponent } from "react-beep";
+import { state, Beep } from "react-beep";
 
-class DisplayTime extends StateComponent(["time"]) {
+class DisplayTime extends Beep(["time"]) {
   render() {
     return <div>{state.time}</div>;
   }

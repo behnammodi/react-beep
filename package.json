@@ -1,7 +1,7 @@
 {
   "name": "react-beep",
-  "version": "0.0.2",
-  "description": "New way for state management with component without connect component",
+  "version": "1.0.0",
+  "description": "New way for state management without connect component",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

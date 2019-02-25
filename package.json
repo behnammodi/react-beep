@@ -1,0 +1,23 @@
+{
+  "name": "react-beep",
+  "version": "0.0.2",
+  "description": "New way for state management with component without connect component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uxitten/react-beep.git"
+  },
+  "author": "Behnam Mohammadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uxitten/react-beep/issues"
+  },
+  "homepage": "https://github.com/uxitten/react-beep#readme",
+  "dependencies": {
+    "jetemit": "^3.1.1",
+    "jetstate": "^1.3.0"
+  }
+}

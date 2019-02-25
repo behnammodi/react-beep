@@ -1,0 +1,7 @@
+.prettierrc
+
+.prettierignore
+
+./src
+
+.vscode

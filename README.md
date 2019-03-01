@@ -4,7 +4,7 @@ New way for state management without connect component
 
 [![NPM](https://nodei.co/npm/react-beep.png)](https://nodei.co/npm/react-beep/)
 
-[![install size](https://packagephobia.now.sh/badge?p=react-beep)](https://packagephobia.now.sh/result?p=react-beep) [![dependencies](https://david-dm.org/uxitten/react-beep.svg)](https://david-dm.org/uxitten/react-beep.svg)
+[![dependencies](https://david-dm.org/uxitten/react-beep.svg)](https://david-dm.org/uxitten/react-beep.svg)
 
 <a href="https://www.npmjs.com/package/react-beep">
   <img src="https://img.shields.io/npm/v/react-beep.svg" alt="Version">

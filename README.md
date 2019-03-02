@@ -29,11 +29,11 @@ npm install react-beep
 ## Initial state
 
 ```javascript
-import { initial } from "react-beep";
+import { initial } from 'react-beep';
 
 initial([
   {
-    name: "time",
+    name: 'time',
     defaultValue: 2018
   }
 ]);
@@ -42,10 +42,10 @@ initial([
 ## Connect to components
 
 ```javascript
-import React from "react";
-import { state, Beep } from "react-beep";
+import React from 'react';
+import { state, Beep } from 'react-beep';
 
-class DisplayTime extends Beep(["time"]) {
+class DisplayTime extends Beep(['time']) {
   render() {
     return <div>{state.time}</div>;
   }
@@ -55,7 +55,23 @@ class DisplayTime extends Beep(["time"]) {
 ## Change state
 
 ```javascript
-import { state } from "react-beep";
+import { state } from 'react-beep';
 
 state.time = 2019;
+```
+
+## Advance
+
+```javascript
+import { initial } from "react-beep";
+
+initial([
+  {
+    name: 'time',
+    defaultValue: 2018,
+    shouldUpdate: (prevValue, nextValue) => nextValue > prevValue,
+    willUpdate: (prevValue, nextValue) => console.log(prevValue, nextValue),
+    didUpdate: value => console.log(value)
+  }
+]);
 ```

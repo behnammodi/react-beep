@@ -1,6 +1,6 @@
 {
   "name": "react-beep",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "New way for state management without connect component",
   "main": "index.js",
   "scripts": {

@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.state = exports.init = exports.emit = exports.on = exports.Beep = exports.initial = void 0;
 
-var _react = require("react");
-
 var jetstate = _interopRequireWildcard(require("jetstate"));
 
 var jetemit = _interopRequireWildcard(require("jetemit"));
@@ -31,6 +29,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/**
+ *
+ * @param {Array} fields
+ * @returns {undefined}
+ */
 var initial = function initial(fields) {
   return fields.forEach(function (field) {
     return jetstate.init(_objectSpread({}, field, {
@@ -41,14 +44,21 @@ var initial = function initial(fields) {
     }));
   });
 };
+/**
+ *
+ * @param {Array} fields array of lisining state name
+ * @param {React.Component|React.PureComponent} component for extends
+ * @returns {React.Component|React.PureComponent}
+ */
+
 
 exports.initial = initial;
 
-var Beep = function Beep(fields) {
+var Beep = function Beep(fields, component) {
   return (
     /*#__PURE__*/
-    function (_Component) {
-      _inherits(_class, _Component);
+    function (_component) {
+      _inherits(_class, _component);
 
       function _class(props) {
         var _this;
@@ -65,7 +75,7 @@ var Beep = function Beep(fields) {
       }
 
       return _class;
-    }(_react.Component)
+    }(component)
   );
 };
 

@@ -42,10 +42,10 @@ initial([
 ## Connect to components
 
 ```javascript
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { state, Beep } from 'react-beep';
 
-class DisplayTime extends Beep(['time']) {
+class DisplayTime extends Beep(['time'], PureComponent) {
   render() {
     return <div>{state.time}</div>;
   }
@@ -63,7 +63,7 @@ state.time = 2019;
 ## Advance
 
 ```javascript
-import { initial } from "react-beep";
+import { initial } from 'react-beep';
 
 initial([
   {
@@ -74,4 +74,13 @@ initial([
     didUpdate: value => console.log(value)
   }
 ]);
+```
+
+## Migration from v1 to v2
+
+You should pass `React.PureComponent` or `React.Component` as second argument.
+
+```diff
+- class DisplayTime extends Beep(['time']) {
++ class DisplayTime extends Beep(['time'], PureComponent)
 ```

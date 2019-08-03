@@ -76,6 +76,39 @@ initial([
 ]);
 ```
 
+## API
+
+### Listen to the changes
+
+```javascript
+import { on } from 'react-beep';
+
+on('time', value => {
+  console.log('change time:', value);
+});
+```
+
+### Init single state
+
+```javascript
+import { init } from 'react-beep';
+
+init({
+  name: 'time',
+  defaultValue: 2018
+});
+```
+
+### Other way for change state
+
+if `time` is not inited, emit just send message to the listener
+
+```javascript
+import { emit } from 'react-beep';
+
+emit('time', 2020);
+```
+
 ## Migration from v1 to v2
 
 You should pass `React.PureComponent` or `React.Component` as second argument.

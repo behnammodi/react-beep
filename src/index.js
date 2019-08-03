@@ -3,23 +3,49 @@ import * as jetemit from 'jetemit';
 
 /**
  *
- * @param {Array} fields
+ * @param {Object} field
+ * @param {string} field.name
+ * @param {*} field.defaultValue
+ * @param {function} field.shouldUpdate
+ * @param {function} field.willUpdate
+ * @param {function} field.didUpdate
  * @returns {undefined}
  */
-export const initial = fields =>
-  fields.forEach(field =>
-    jetstate.init({
-      ...field,
-      didUpdate: value => {
-        jetemit.emit(field.name, value);
-        field.didUpdate && field.didUpdate(value);
-      }
-    })
-  );
+function $init(field) {
+  jetstate.init({
+    ...field,
+    didUpdate: value => {
+      jetemit.emit(field.name, value);
+      field.didUpdate && field.didUpdate(value);
+    }
+  });
+}
 
 /**
  *
- * @param {Array} fields array of lisining state name
+ * @param {string} name
+ * @param {*} value
+ */
+function $emit(name, value) {
+  if (jetstate.state[name]) jetstate.state[name] = value;
+  else jetemit.emit(name, value);
+}
+
+/**
+ *
+ * @param {Object[]} fields
+ * @param {string} fields[].name
+ * @param {*} fields[].defaultValue
+ * @param {function} fields[].shouldUpdate
+ * @param {function} fields[].willUpdate
+ * @param {function} fields[].didUpdate
+ * @returns {undefined}
+ */
+export const initial = fields => fields.forEach(field => $init(field));
+
+/**
+ *
+ * @param {array} fields array of lisining state name
  * @param {React.Component|React.PureComponent} component for extends
  * @returns {React.Component|React.PureComponent}
  */
@@ -34,8 +60,8 @@ export const Beep = (fields, component) => {
 
 export const on = jetemit.on;
 
-export const emit = jetemit.emit;
+export const emit = $emit;
 
-export const init = jetstate.init;
+export const init = $init;
 
 export const state = jetstate.state;

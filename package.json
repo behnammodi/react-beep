@@ -1,11 +1,11 @@
 {
   "name": "react-beep",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "New way for state management without connect component",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --out-dir ./"
+    "build": "babel src --out-dir ./ && cp ./index.js ./example/src/react-beep.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,8 @@
     "jetstate": "^1.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
   }
 }

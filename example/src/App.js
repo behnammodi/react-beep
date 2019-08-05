@@ -58,7 +58,12 @@ class DisplayCounterA extends Beep(['counter'], React.Component) {
 class DisplayCounterB extends Beep(['counter'], React.PureComponent) {
   render() {
     console.log('Render DisplayCounterB', state.counter);
-    return <div>Counter B: {state.counter}</div>;
+    return (
+      <div>
+        Counter B: {state.counter}
+        {state.counter < 5 && <DisplayCounterBB />}
+      </div>
+    );
   }
 }
 
@@ -71,6 +76,21 @@ class DisplayCounterC extends Beep([], React.PureComponent) {
         <button onClick={() => this.forceUpdate()}>Get counter</button>
       </div>
     );
+  }
+}
+
+class DisplayCounterBB extends Beep(['counter'], React.PureComponent) {
+  constructor() {
+    super();
+    console.log('constructor DisplayCounterBB');
+  }
+  componentWillUnmount() {
+    //super.componentWillUnmount();
+    console.log('componentWillUnmount DisplayCounterBB');
+  }
+  render() {
+    console.log('Render DisplayCounterBB', state.counter);
+    return <div>Counter BB: {state.counter}</div>;
   }
 }
 

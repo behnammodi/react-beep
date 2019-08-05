@@ -53,7 +53,17 @@ export const Beep = (fields, component) => {
   return class extends component {
     constructor(props) {
       super(props);
-      fields.forEach(field => jetemit.on(field, () => this.forceUpdate()));
+      this.__UNSUBSCRIBES = [];
+      fields.forEach(field => {
+        const unsubscribe = jetemit.on(field, () => {
+          this.forceUpdate();
+        });
+        this.__UNSUBSCRIBES.push(unsubscribe);
+      });
+    }
+    componentWillUnmount() {
+      this.__UNSUBSCRIBES.forEach(unsubscribe => unsubscribe());
+      this.__UNSUBSCRIBES = [];
     }
   };
 };

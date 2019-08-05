@@ -58,6 +58,20 @@ export const Beep = (fields, component) => {
   };
 };
 
+export const useBeep = (fields, useState) => {
+  const initialState = fields.reduce(
+    (a, b) => ({
+      ...a,
+      [b]: jetstate.state[b]
+    }),
+    {}
+  );
+  const [state, setState] = useState(initialState);
+  fields.forEach(field => jetemit.on(field, () => this.forceUpdate()));
+
+  return [jetstate.state, () => {}];
+};
+
 export const on = jetemit.on;
 
 export const emit = $emit;

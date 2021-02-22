@@ -1,9 +1,17 @@
+.vscode
+
+example
+
+src
+
+.gitignore
+
 .prettierrc
 
 .prettierignore
 
-./src/*
-
-.vscode
-
 babel.config.js
+
+LICENSE
+
+README.md
